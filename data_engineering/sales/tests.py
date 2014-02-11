@@ -115,10 +115,10 @@ class SaleModelTest(TestCase):
         self.item = Item.import_from_txt_data(self.txtData[1:3], self.merchant)
 
     def test_import_sale_from_txt_data(self):
-        Sale.import_from_txt_data(txtData=self.txtData, billing=self.billing)
+        sale = Sale.import_from_txt_data(txtData=self.txtData, billing=self.billing)
 
         # Retrieve it from database.
-        sale = Sale.objects.all()[0]
+        sale = Sale.objects.filter(id=sale.id)[0]
 
         # Check its attributes.
         self.assertEquals(sale.purchaserName, self.txtData[0])

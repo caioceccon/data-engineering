@@ -121,3 +121,4 @@ class Sale(BaseModel):
             purchaserName=purchaserName, item=item, billing=billing,
             merchant=merchant, salePrice=salePrice, quantity=quantity
         )
+        return sale

@@ -29,3 +29,11 @@ class Item(BaseModel):
     merchant = models.ForeignKey(Merchant)
     description = models.CharField(u'Description', max_length=100)
     price = models.FloatField(u'Price')
+
+
+class Sale(BaseModel):
+    purchaserName = models.CharField(u'Purchaser Name', max_length=100)
+    item = models.ForeignKey(Item)
+    merchant = models.ForeignKey(Merchant)
+    salePrice = models.FloatField(u'Sale Price')
+    quantity = models.IntegerField(u'Quantity')

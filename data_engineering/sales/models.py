@@ -23,3 +23,9 @@ class BaseModel(models.Model):
 class Merchant(BaseModel):
     name = models.CharField(u'Name', max_length=100)
     address = models.CharField(u'Address', max_length=100)
+
+
+class Item(BaseModel):
+    merchant = models.ForeignKey(Merchant)
+    description = models.CharField(u'Description', max_length=100)
+    price = models.FloatField(u'Price')

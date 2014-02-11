@@ -31,9 +31,17 @@ class Item(BaseModel):
     price = models.FloatField(u'Price')
 
 
+class Billing(BaseModel):
+    txtBillingFile = models.FileField(
+        upload_to=u'billings',
+        verbose_name=u'Txt Billing File'
+    )
+
+
 class Sale(BaseModel):
     purchaserName = models.CharField(u'Purchaser Name', max_length=100)
     item = models.ForeignKey(Item)
+    billing = models.ForeignKey(Billing)
     merchant = models.ForeignKey(Merchant)
     salePrice = models.FloatField(u'Sale Price')
     quantity = models.IntegerField(u'Quantity')

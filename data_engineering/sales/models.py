@@ -54,6 +54,11 @@ class Item(BaseModel):
 
 
 class Billing(BaseModel):
+    def save(self, *args, **kwargs):
+        super(Billing, self).save(*args, **kwargs)
+        if self.txtBillingFile:
+            self.parse_txt_billing_file()
+
     txtBillingFile = models.FileField(
         upload_to=u'billings', verbose_name=u'Txt Billing File'
     )
@@ -63,6 +68,7 @@ class Billing(BaseModel):
         for s in Sale.objects.filter(billing=self):
             total += s.salePrice
         return total
+    calculate_gross_revenue.short_description = u'Gross revenue'
 
     def parse_txt_billing_file(self, verbose=False):
         lineCount = 0

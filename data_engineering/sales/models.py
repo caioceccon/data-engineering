@@ -18,3 +18,8 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
+
+
+class Merchant(BaseModel):
+    name = models.CharField(u'Name', max_length=100)
+    address = models.CharField(u'Address', max_length=100)

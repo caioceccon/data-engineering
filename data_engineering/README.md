@@ -1,3 +1,5 @@
+[ ![Codeship Status](https://codeship.io/projects/eae09450-c835-0131-a153-3281d6cd49ef/status?branch=master)](https://www.codeship.io/projects/22274)
+
 # Billing TXT Parser
 To run this project follow the instructions bellow.
 

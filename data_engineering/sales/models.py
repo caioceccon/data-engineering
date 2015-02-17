@@ -52,6 +52,9 @@ class Item(BaseModel):
         )
         return item
 
+    def __unicode__(self):
+        return u'%s' % (self.description)
+
 
 class Billing(BaseModel):
     def save(self, *args, **kwargs):
